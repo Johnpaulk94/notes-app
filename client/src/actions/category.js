@@ -7,13 +7,6 @@ export const setCategories =(categories) => {
     }
 }
 
-export const addCategory =(category) => {
-    return {
-        type: 'ADD_CATEGORY',
-        payload: category
-    }
-}
-
 export const startGetCategories=() => {
     return(
         dispatch => {
@@ -29,6 +22,16 @@ export const startGetCategories=() => {
         }
     )
 }
+
+
+export const addCategory =(category) => {
+    return {
+        type: 'ADD_CATEGORY',
+        payload: category
+    }
+}
+
+
 
 export const startaddCategory=(formData) => {
     return (

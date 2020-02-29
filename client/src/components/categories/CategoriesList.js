@@ -9,16 +9,6 @@ class CategoriesList extends React.Component {
         }
     }
 
-    componentDidMount() {
-        axios.get('http://localhost:3015/categories')
-            .then(response => {
-                const categories = response.data
-                this.setState({categories})
-            })
-            .catch(err => {
-                alert(err)
-            })
-    }
     render() {
         return (
             <div>
