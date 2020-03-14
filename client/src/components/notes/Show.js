@@ -1,5 +1,5 @@
 import React from 'react'
-import axios from 'axios'
+
 
 export default class NoteShow extends React.Component {
     constructor() {
@@ -9,17 +9,11 @@ export default class NoteShow extends React.Component {
         }
     }
 
-    componentDidMount() {
-        const id = this.props.match.params.id
-        axios.get(`http://localhost:3015/notes/${id}`)
-            .then(response => {
-                const note = response.data
-                this.setState({note})
-            })
-    }
+
 
     handleDelete = () => {
-        const id = this.props.match.params.id
+        //const id = this.props.match.params.id
+        /*
         axios.delete(`http://localhost:3015/notes/${id}`)
             .then(response => {
                 if(response.data._id) {
@@ -28,8 +22,9 @@ export default class NoteShow extends React.Component {
             })
             .catch(err => {
                 alert(err)
-            })
+            })*/
     }
+
     handleClick= () => {
         
     }

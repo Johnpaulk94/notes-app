@@ -43,3 +43,14 @@ module.exports.logout= function(req,res) {
             res.send(err)
         })
 }
+
+module.exports.show = (req, res) => {
+    User.findOne({ _id : req.user._id })
+        .then(user => {
+            const { _id , username, email } = user
+            res.send({ _id, username, email })
+        })
+        .catch(err => {
+            res.send(err)
+        })
+}

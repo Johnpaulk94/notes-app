@@ -19,6 +19,7 @@ router.delete('/categories/:id',authenicateUser,categoriesController.delete)
 
 
 router.post('/users/register',usersController.register)
+router.get('users/account',usersController.show)
 router.post('/users/login',usersController.login)
 router.delete('/users/logout',usersController.logout)
 

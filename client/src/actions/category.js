@@ -7,7 +7,7 @@ export const setCategories =(categories) => {
     }
 }
 
-export const startGetCategories=() => {
+export const startSetCategories=() => {
     return(
         dispatch => {
             axios.get('http://localhost:3015/categories',{
@@ -47,4 +47,4 @@ export const startaddCategory=(formData) => {
             })
         }
     )
-}
+}   

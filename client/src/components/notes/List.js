@@ -1,30 +1,33 @@
 import React from 'react'
-import axios from 'axios'
 import {Link} from 'react-router-dom'
+import {connect} from 'react-redux'
+ 
+function NotesList(props) {
 
-class NotesList extends React.Component {
-    constructor() {
-        super()
-        this.state = {
-            notes: []
-        }
-    }
-    
-    render() {
-        return (
-            <div>
+    console.log(props.notes)
+    return (
+            <div className="container">
                     <h2> Listing Notes </h2>
+                
                     <ul>
                         {
-                            this.state.notes.map(note => {
+                            props.notes.map(note => {
                                 return <li key={note._id}>{note.title}<Link to={`/notes/${note._id}`}> Show</Link></li>
                             })
                         }
                     </ul>
                     <Link to='/notes/new'> Add new note</Link>
             </div>
-        )
+        )       
+
+}
+
+const mapStateToProps = (state) => {
+    console.log(state)
+    return {
+        notes: state.notes
     }
 }
 
-export default NotesList
+
+export default connect(mapStateToProps)(NotesList)

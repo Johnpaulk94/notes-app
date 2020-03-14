@@ -2,11 +2,12 @@ import React from 'react';
 import {BrowserRouter,Route,Link,Switch} from 'react-router-dom'
 import {connect} from 'react-redux'
 import Home from './Home'
-import NotesList from './components/notes/NotesList'
-import NoteShow from './components/notes/NoteShow'
+import NotesList from './components/notes/List'
+import NoteShow from './components/notes/Show'
 import CategoriesList from './components/categories/CategoriesList'
 import Register from './components/authentication/Register'
 import Login from './components/authentication/Login'
+import NoteNew from './components/notes/New'
 
 function App(props) {
   const handleLogout = () => {
@@ -16,7 +17,7 @@ function App(props) {
   return (
     <BrowserRouter>
       {
-        Object.keys(props.user).length != 0 ? (
+        localStorage.getItem('authToken') ? (
           <div>
             <Link to ='/'> Home </Link>
             <Link to ='/notes'> Notes </Link>
@@ -38,7 +39,7 @@ function App(props) {
         <Route path='/users/register' component={Register} />
         <Route path='/users/login' component ={Login} />
         <Route exact path ='/notes' component ={NotesList}/>
-        {/*<Route path= '/notes/new' component={NoteNew} /> */}
+        <Route exact path= '/notes/new' component={NoteNew} />
         <Route path= '/notes/:id' component={NoteShow} />
 
         <Route path ='/categories' component ={CategoriesList} />
