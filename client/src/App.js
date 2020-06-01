@@ -3,11 +3,13 @@ import {BrowserRouter,Route,Link,Switch} from 'react-router-dom'
 import {connect} from 'react-redux'
 import Home from './Home'
 import NotesList from './components/notes/List'
-import NoteShow from './components/notes/Show'
 import CategoriesList from './components/categories/CategoriesList'
 import Register from './components/authentication/Register'
 import Login from './components/authentication/Login'
-import NoteNew from './components/notes/New'
+import EditNote from './components/notes/Edit'
+import NewNote from './components/notes/New'
+import AddCategory from './components/categories/AddCategory'
+
 
 function App(props) {
   const handleLogout = () => {
@@ -39,10 +41,11 @@ function App(props) {
         <Route path='/users/register' component={Register} />
         <Route path='/users/login' component ={Login} />
         <Route exact path ='/notes' component ={NotesList}/>
-        <Route exact path= '/notes/new' component={NoteNew} />
-        <Route path= '/notes/:id' component={NoteShow} />
+        <Route exact path='/notes/new' component={NewNote} />
+        <Route path='/notes/edit/:id' component={EditNote} />
 
-        <Route path ='/categories' component ={CategoriesList} />
+        <Route exact path ='/categories' component ={CategoriesList} />
+        <Route path ='/categories/new' component={AddCategory} />
         
       </Switch>
    </BrowserRouter>

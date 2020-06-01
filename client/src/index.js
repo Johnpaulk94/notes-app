@@ -4,7 +4,7 @@ import App from './App'
 import {Provider} from 'react-redux'
 import configureStore from './store/Configstore'
 import 'bootstrap/dist/css/bootstrap.css'
-import { startSetCategories } from './actions/category'
+import { startGetCategories } from './actions/category'
 import { startSetNotes } from './actions/notes'
 
 
@@ -16,7 +16,7 @@ store.subscribe(() => {
 })
 
 if(localStorage.getItem('authToken')) {
-    store.dispatch(startSetCategories())
+    store.dispatch(startGetCategories())
     store.dispatch(startSetNotes())
 }
 const ele = (

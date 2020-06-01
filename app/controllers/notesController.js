@@ -28,6 +28,7 @@ module.exports.show = (req,res) => {
 
 module.exports.create = (req,res) => {
     const body = req.body
+    console.log('body inside request in nackend',body)
     const note = new Note(body)
     note.user= req.user._id
     note.save()
@@ -41,9 +42,11 @@ module.exports.create = (req,res) => {
 
 module.exports.update = (req,res) => {
     const id = req.params.id
+    console.log('id=>',id)
     const body = req.body
+    console.log('body=>',body)
     //third argument specifies whether to return the updated record or not
-    //also checks validations given in the shema
+    //also checks validations given in the schema
     Note.findOneAndUpdate({_id: id, user: req.user._id}, body, {new: true, runValidators: true, useFindAndModify:false}) 
         .then((note) => {
             console.log('note',note)

@@ -2,8 +2,8 @@ import React from 'react'
 
 function Home() {
     return(
-        <div>
-            <h2> Welcome to Notes App</h2>
+        <div className="align text-center">
+            <h1> Welcome to Notes App</h1>
         </div>
     )
 }

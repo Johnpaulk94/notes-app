@@ -8,14 +8,21 @@ function NotesList(props) {
     return (
             <div className="container">
                     <h2> Listing Notes </h2>
-                
-                    <ul>
+                    <div className="row">
                         {
                             props.notes.map(note => {
-                                return <li key={note._id}>{note.title}<Link to={`/notes/${note._id}`}> Show</Link></li>
+                                return (<div className="col-sm-6" key={note._id}>
+                                            <div className="card">
+                                            <div className="card-body">
+                                                <h5 className="card-title">{note.title}</h5>
+                                                <p className="card-text">{note.description}</p>
+                                                <button className='btn btn-primary' onClick={() => { props.history.push(`/notes/edit/${note._id}`)}}>Edit</button>
+                                            </div> 
+                                            </div>
+                                        </div>)
                             })
                         }
-                    </ul>
+                    </div>
                     <Link to='/notes/new'> Add new note</Link>
             </div>
         )       

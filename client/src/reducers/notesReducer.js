@@ -7,6 +7,7 @@ const notesReducer = (state = initialNotesState, action) => {
             return [...action.payload]
         }
         case 'ADD_NOTE' : {
+            console.log('note added to reducer')
             return [...state,action.payload]
         }
         case 'EDIT_NOTE' : {

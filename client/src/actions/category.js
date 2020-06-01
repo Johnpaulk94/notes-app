@@ -7,7 +7,7 @@ export const setCategories =(categories) => {
     }
 }
 
-export const startSetCategories=() => {
+export const startGetCategories=() => {
     return(
         dispatch => {
             axios.get('http://localhost:3015/categories',{
@@ -33,10 +33,10 @@ export const addCategory =(category) => {
 
 
 
-export const startaddCategory=(formData) => {
+export const startAddCategory=(formData) => {
     return (
         dispatch => {
-            axios.post('http://localhost:3015/categories',{
+            axios.post('http://localhost:3015/categories',formData, {
                 headers: {
                     'x-auth': localStorage.getItem('authToken')
                 }
